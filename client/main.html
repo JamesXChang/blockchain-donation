@@ -1,0 +1,361 @@
+<!-- main.html -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png">
+  <link rel="manifest" href="./favicons/manifest.json">
+  <link rel="mask-icon" href="./favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="./favicons/favicon.ico">
+  <meta name="msapplication-config" content="./favicons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link rel="stylesheet" href="src/css/main.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/v1.7.1/dist/clipboard.min.js"></script>
+  <script type="text/javascript" src="https://cdn.rawgit.com/ethereum/web3.js/master/dist/web3.min.js"></script>
+  <script type="text/javascript" src="lib.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+  <title>dapp</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" >
+    <a class="navbar-brand" href="#">Farmchain</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <!-- Jumbotron -->
+  <div class="jumbotron" style="background-color:MediumSeaGreen;">
+    <div class="container">
+      <h1 class="display-2" style="color:white;">Farm<strong>Chain</strong></h1>
+      <p class="lead" style="color:white;">a farme system based on blockchain</p>
+    </div>
+  </div>
+  <!-- Nav bar -->
+  <div class="container">
+    <ul class="nav nav-tabs nav-fill nav-justified h2" id="navTabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="Planting-tab" data-toggle="tab" href="#Planting" role="tab">Planting</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="Warehouse-tab" data-toggle="tab" href="#Warehouse" role="tab">Warehouse</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="Transportation-tab" data-toggle="tab" href="#Transportation" role="tab">Transportation</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="Order-tab" data-toggle="tab" href="#Ordertab" role="tab">Order</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="Delegate-tab" data-toggle="tab" href="#Delegate" role="tab">Delegate</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="About-tab" data-toggle="tab" href="#About" role="tab">About</a>
+      </li>
+    </ul>
+  </div>
+  <!-- Tabs -->
+  <!-- Planting -->
+  <div class="tab-content" id="navTabsContent">
+    <div class="tab-pane fade show active" id="Planting" role="tabpanel">
+      <h4 class="text-center mt-5 mb-3">Planting Management</h4>
+      <p class="mb-5 w-75 mx-auto">Farmers can upload the planting data here, about name, plant date, temperature, water volume, sun hours and harvest date, we can also check the data here!</p>
+      {{>demo1}}
+    </div>
+
+    <!-- Warehouse -->
+    <div class="tab-pane fade" id="Warehouse" role="tabpanel">
+      <h4 class="text-center mt-5 mb-3">Warehouse Management</h4>
+      <p class="mb-5 w-75 mx-auto">Upload the warehouse data, about house temperature and stock in house, we can also check the data here!</p>
+      {{>demo2}}
+    </div>
+
+    <!-- Transportation -->
+    <div class="tab-pane fade" id="Transportation" role="tabpanel">
+      <h4 class="text-center mt-5 mb-3">Transportation Management</h4>
+      <p class="mb-5 w-75 mx-auto">Upload the transportation data, about shipment date, tran temperature, and we can also check the data here!</p>
+      {{>demo3}}
+    </div>
+    
+    <!-- Order -->
+    <div class="tab-pane fade" id="Ordertab" role="tabpanel">
+      <h4 class="text-center mt-5 mb-3">Order Management</h4>
+      <p class="mb-5 w-75 mx-auto">User can order the product here, and get the info of product.</p>
+      {{>demo4}}
+    </div>
+
+    <!-- Delegate -->
+    <div class="tab-pane fade" id="Delegate" role="tabpanel">
+      <h4 class="text-center mt-5 mb-3">Delegate Management</h4>
+      <p class="mb-5 w-75 mx-auto">The Admin can Delegate the farmer by address, and the farmer can upload many data about plant.</p>
+      {{>demo5}}
+    </div>
+
+    <!-- About -->
+    <div class="tab-pane fade" id="About" role="tabpanel">
+      <h4 class="text-center mt-5 mb-3">About</h4>
+      <p class="mb-5 w-75 mx-auto">Made by <strong>張峻騰</strong> 105062314 2019.5.20, Hw8 of CS5363 Blockchain Technologies and Applications<strong>Decentralized App (DApp).</strong></p>
+    </div>
+  </div>
+
+</body>
+
+<!-- planting -->
+<template name="demo1">
+  <form id="start_planting">
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <div class="input-group">
+          <div class="input-group-addon">Name</div>
+          <input type="text" class="form-control" placeholder='"Name of the plant"'>
+        </div>
+      </div>
+      <div class="text-center form-group col-md-2 col-x2-1">
+        <button type="button" class="h-100 btn-block btn btn-outline-primary nofocus cursor-pointer" id="start">Start planting</button>
+      </div>
+    </div>
+  </form>
+  <form id="upload_plant_data">
+    <div class="form-row">
+      <div class="form-group col-md-10">
+        <div class="input-group">
+          <div class="input-group-addon">index</div>
+          <input type="text" class="form-control" name="plant_index" placeholder="index of the plant">
+          <div class="input-group-addon">temperature</div>
+          <input type="text" class="form-control" name="plant_temperature" placeholder='ex: 25'>
+          <div class="input-group-addon">water volume</div>
+          <input type="text" class="form-control" name="plant_water_volume" placeholder="ex: 40">
+          <div class="input-group-addon">sun hours</div>
+          <input type="text" class="form-control" name="plant_sun_hours" placeholder='ex: 24'>
+        </div>
+      </div>
+      <div class="text-center form-group col-md-1 col-x1-1">
+        <button type="button" id="upload_plant" class="h-100 btn-block btn btn-outline-primary nofocus cursor-pointer">Upload</button>
+      </div>
+    </div>
+  </form>
+  <form id="harvest">
+    <div class="form-row">
+      <div class="form-group col-md-5">
+        <div class="input-group">
+          <div class="input-group-addon">index</div>
+          <input type="text" class="form-control" placeholder='"index of the plant"'>
+          <div class="input-group-addon">amount</div>
+          <input type="text" class="form-control" placeholder='"amount of harvest"'>
+        </div>
+      </div>
+      <div class="text-center form-group col-md-1 col-x2-1">
+        <button type="button" id="harvest_plant" class="h-100 btn-block btn btn-outline-primary nofocus cursor-pointer" >Harvest</button>
+      </div>
+    </div>
+  </form>
+  <form id="get_plant_data">
+    <div class="form-row">
+        <div class="form-group col-md-3">
+          <div class="input-group">
+            <div class="input-group-addon">index</div>
+            <input type="text" class="form-control" placeholder='"index of the plant"'>
+          </div>
+        </div>
+        <div class="text-center form-group col-md-3 col-x3-1">
+          <button type="button" id="getplant" class="h-100 btn-block btn btn-outline-primary nofocus cursor-pointer" >Get Plant Data</button>
+        </div>
+      </div>
+      {{#if showPlantData}}
+      <h4 class="form-group col-md-3 col-x1-1">Plant {{index}} Data</h4>
+      <li class="form-group col-md-3 col-x1-1">name: {{name}}</li>
+      <li class="form-group col-md-3 col-x1-1">planted date: {{plant_date}}</li>
+      <li class="form-group col-md-3 col-x1-1">temperature: {{plant_temperature}}</li>
+      <li class="form-group col-md-3 col-x1-1">water volume: {{plant_water_volume}}</li>
+      <li class="form-group col-md-3 col-x1-1">sun_hours: {{sun_hours}}</li>
+      <li class="form-group col-md-3 col-x1-1">harvest date: {{harvest_date}}</li>
+      {{/if}}
+    </form>
+  
+</template>
+
+<!-- warehouse -->
+<template name="demo2">
+  <form id="warehouse">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <div class="input-group">
+          <div class="input-group-addon">index</div>
+          <input type="text" class="form-control" placeholder='"index of the plant"'>
+          <div class="input-group-addon">temperature</div>
+          <input type="text" class="form-control" placeholder='"Warehouse temperature"'>
+        </div>
+      </div>
+      <div class="text-center form-group col-md-2 col-x2-1">
+        <button type="button" id="upload_warehouse" class="h-100 btn-block btn btn-outline-primary nofocus cursor-pointer" >Upload Warehouse Data</button>
+      </div>
+    </div>
+    
+  </form>
+  <form id="get_warehouse_data">
+    <div class="form-row">
+        <div class="form-group col-md-3">
+          <div class="input-group">
+            <div class="input-group-addon">index</div>
+            <input type="text" class="form-control" placeholder='"index of the plant"'>
+          </div>
+        </div>
+        <div class="text-center form-group col-md-3 col-x3-1">
+          <button type="button" id="getwarehouse" class="h-100 btn-block btn btn-outline-primary nofocus cursor-pointer" >Get Warehouse Data</button>
+        </div>
+      </div>
+      {{#if showWarehouseData}}
+      <h4 class="form-group col-md-3 col-x1-1">Warehouse {{index}} Data</h4>
+      <li class="form-group col-md-3 col-x1-1">name: {{name}}</li>
+      <li class="form-group col-md-3 col-x1-1">warehouse temperature: {{house_temperature}}</li>
+      <li class="form-group col-md-3 col-x1-1">stock: {{stock}}</li>
+      {{/if}}
+    </form>
+
+</template>
+
+<!-- tran data -->
+<template name="demo3">
+  <form id="transportation">
+    <div class="form-row">
+      <div class="form-group col-md-7">
+        <div class="input-group">
+          <div class="input-group-addon">index</div>
+          <input type="text" class="form-control" placeholder='"index of the plant"'>
+          <div class="input-group-addon">temperature</div>
+          <input type="text" class="form-control" placeholder='"Transportation temperature"'>
+        </div>
+      </div>
+      <div class="text-center form-group col-md-4 col-x2-1">
+        <button type="button" id="upload_tran" class="h-100 btn-block btn btn-outline-primary nofocus cursor-pointer" >Upload Cold Chain Logistic Data</button>
+      </div>
+    </div>
+  </form>
+
+  <form id="shipment_index">
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <div class="input-group">
+          <div class="input-group-addon">index</div>
+          <input type="text" class="form-control" placeholder='"index of the plant"'>
+        </div>
+      </div>
+      <div class="text-center form-group col-md-3 col-x2-1">
+        <button type="button" id="Shipment" class="h-100 btn-block btn btn-outline-primary nofocus cursor-pointer" >Shipment the ordered product</button>
+      </div>
+    </div>
+  </form>
+
+  <form id="get_tran_data">
+  <div class="form-row">
+      <div class="form-group col-md-3">
+        <div class="input-group">
+          <div class="input-group-addon">index</div>
+          <input type="text" class="form-control" placeholder='"index of the plant"'>
+        </div>
+      </div>
+      <div class="text-center form-group col-md-3 col-x3-1">
+        <button type="button" id="gettrandata" class="h-100 btn-block btn btn-outline-primary nofocus cursor-pointer" >Get Cold Chain Logistic Data</button>
+      </div>
+    </div>
+    {{#if showTranData}}
+    <h4 class="form-group col-md-3 col-x1-1">Transportation {{index}} Data</h4>
+    <li class="form-group col-md-3 col-x1-1">name: {{name}}</li>
+    <li class="form-group col-md-3 col-x1-1">shipment date: {{shipment_date}}</li>
+    <li class="form-group col-md-3 col-x1-1">tran temperature: {{tran_temperature}}</li>
+    {{/if}}
+  </form>
+
+</template>
+
+<!-- order -->
+<template name="demo4">
+  <form id="order_index">
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <div class="input-group">
+          <div class="input-group-addon">index</div>
+          <input type="text" class="form-control" placeholder='"index of the plant"'>
+        </div>
+      </div>
+      <div class="text-center form-group col-md-2 col-x2-1">
+        <button type="button" id="order" class="h-100 btn-block btn btn-outline-primary nofocus cursor-pointer" >Order</button>
+      </div>
+    </div>
+    <small>Click when the product arrival</small>
+  </form>
+  <form id="arrival_index">
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <div class="input-group">
+          <div class="input-group-addon">index</div>
+          <input type="text" class="form-control" placeholder='"index of the plant"'>
+        </div>
+      </div>
+      <div class="text-center form-group col-md-2 col-x2-1">
+        <button type="button" id="arrival" class="h-100 btn-block btn btn-outline-primary nofocus cursor-pointer" >Arrival</button>
+      </div>
+    </div>
+    
+  </form>
+
+  <form id="get_order_data">
+    <div class="form-row">
+        <div class="form-group col-md-3">
+          <div class="input-group">
+            <div class="input-group-addon">index</div>
+            <input type="text" class="form-control" placeholder='"index of the plant"'>
+          </div>
+        </div>
+        <div class="text-center form-group col-md-2 col-x3-1">
+          <button type="button" id="getorderdata" class="h-100 btn-block btn btn-outline-primary nofocus cursor-pointer" >Get Order Data</button>
+        </div>
+      </div>
+      {{#if showOrderData}}
+      <h4 class="form-group col-md-3 col-x1-1">Order {{index}} Data</h4>
+      <li class="form-group col-md-3 col-x1-1">name: {{name}}</li>
+      <li class="form-group col-md-3 col-x1-1">is ordered: {{is_ordered}}</li>
+      <li class="form-group col-md-3 col-x1-1">order date: {{order_date}}</li>
+      <li class="form-group col-md-3 col-x1-1">shipment date: {{shipment_date}}</li>
+      <li class="form-group col-md-3 col-x1-1">arrival date: {{arrival_date}}</li>
+      {{/if}}
+    </form>
+    
+</template>
+  
+<!-- Delegate -->
+<template name="demo5">
+  <form id="delegate_address">
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <div class="input-group">
+          <div class="input-group-addon">address</div>
+          <input type="text" class="form-control" placeholder='address of farmer'>
+        </div>
+      </div>
+      <div class="text-center form-group col-md-2 col-x2-1">
+        <button type="button" id="delegate" class="h-100 btn-block btn btn-outline-primary nofocus cursor-pointer" >Delegate</button>
+      </div>
+    </div>
+  </form>
+</template>
