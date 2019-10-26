@@ -3,248 +3,259 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import './main.html';
 
-ContractAddress = "0xba3cb6faa1bb1ab6b8f9a3c83c75b78156f9a5e9"
-myContract = web3.eth.contract([{"constant":true,"inputs":[{"name":"index","type":"uint256"}],"name":"get_Tran_data","outputs":[{"name":"","type":"string"},{"name":"","type":"uint256"},{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"Warehouse","outputs":[{"name":"index","type":"uint256"},{"name":"name","type":"string"},{"name":"house_temperature","type":"uint256"},{"name":"stock","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"index","type":"uint256"}],"name":"order","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"index","type":"uint256"}],"name":"get_Order_data","outputs":[{"name":"","type":"string"},{"name":"","type":"bool"},{"name":"","type":"uint256"},{"name":"","type":"uint256"},{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_name","type":"string"}],"name":"planted","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"index","type":"uint256"},{"name":"tran_temperature","type":"uint256"}],"name":"upload_tran_data","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"to","type":"address"}],"name":"delegate","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"index","type":"uint256"}],"name":"get_Warehouse_data","outputs":[{"name":"","type":"string"},{"name":"","type":"uint256"},{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"index","type":"uint256"}],"name":"shipment","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"Order","outputs":[{"name":"index","type":"uint256"},{"name":"name","type":"string"},{"name":"is_ordered","type":"bool"},{"name":"order_date","type":"uint256"},{"name":"shipment_date","type":"uint256"},{"name":"arrival_date","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"index","type":"uint256"}],"name":"arrival","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"index","type":"uint256"},{"name":"house_temperature","type":"uint256"}],"name":"upload_warehouse_data","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"Plant","outputs":[{"name":"index","type":"uint256"},{"name":"name","type":"string"},{"name":"plant_date","type":"uint256"},{"name":"plant_temperature","type":"uint256"},{"name":"plant_water_volume","type":"uint256"},{"name":"sun_hours","type":"uint256"},{"name":"harvest_date","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"index","type":"uint256"}],"name":"get_plant_data","outputs":[{"name":"","type":"string"},{"name":"","type":"uint256"},{"name":"","type":"uint256"},{"name":"","type":"uint256"},{"name":"","type":"uint256"},{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"farmer","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"Tran","outputs":[{"name":"index","type":"uint256"},{"name":"name","type":"string"},{"name":"shipment_date","type":"uint256"},{"name":"tran_temperature","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"index","type":"uint256"},{"name":"amount","type":"uint256"}],"name":"harvest","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"index","type":"uint256"},{"name":"plant_temperature","type":"uint256"},{"name":"plant_water_volume","type":"uint256"},{"name":"sun_hours","type":"uint256"}],"name":"upload_plant_data","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"admin","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}]);
+ContractAddress = "0x2C5847D0bABC3c60B733644Ce8b0265810cd90d0"
+myContract = web3.eth.contract([{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"project_data","outputs":[{"name":"creator","type":"address"},{"name":"creator_name","type":"string"},{"name":"project_name","type":"string"},{"name":"descrption","type":"string"},{"name":"current_Amount","type":"uint256"},{"name":"goal_Amount","type":"uint256"},{"name":"create_date","type":"uint256"},{"name":"expired_date","type":"uint256"},{"name":"state","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"f_address","type":"address"}],"name":"delegate_fundraiser","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"project_name","type":"string"},{"name":"project_desc","type":"string"},{"name":"creator_name","type":"string"},{"name":"goal_Amount","type":"uint256"},{"name":"duration","type":"uint256"}],"name":"create_project","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"payeesIndexSize","outputs":[{"name":"","type":"int8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"int8"}],"name":"fundraiser_index","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"donation_data","outputs":[{"name":"don_address","type":"address"},{"name":"name","type":"string"},{"name":"project_ID","type":"uint256"},{"name":"amount","type":"uint256"},{"name":"don_date","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"int8"}],"name":"payeesIndex","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"payees","outputs":[{"name":"status","type":"bool"},{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"get_donate_array","outputs":[{"components":[{"name":"don_address","type":"address"},{"name":"name","type":"string"},{"name":"project_ID","type":"uint256"},{"name":"amount","type":"uint256"},{"name":"don_date","type":"uint256"}],"name":"","type":"tuple[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"index","type":"uint256"}],"name":"get_withdraw_data","outputs":[{"name":"","type":"uint256"},{"name":"","type":"string"},{"name":"","type":"address"},{"name":"","type":"string"},{"name":"","type":"string"},{"name":"","type":"uint256"},{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"index","type":"uint256"}],"name":"get_donate_data","outputs":[{"name":"","type":"address"},{"name":"","type":"string"},{"name":"","type":"uint256"},{"name":"","type":"uint256"},{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"index","type":"uint256"},{"name":"project_name","type":"string"},{"name":"project_desc","type":"string"},{"name":"creator_name","type":"string"},{"name":"goal_Amount","type":"uint256"},{"name":"duration","type":"uint256"}],"name":"edit_project","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"fundraisers","outputs":[{"name":"status","type":"bool"},{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"get_project_array","outputs":[{"components":[{"name":"creator","type":"address"},{"name":"creator_name","type":"string"},{"name":"project_name","type":"string"},{"name":"descrption","type":"string"},{"name":"current_Amount","type":"uint256"},{"name":"goal_Amount","type":"uint256"},{"name":"create_date","type":"uint256"},{"name":"expired_date","type":"uint256"},{"name":"state","type":"uint8"}],"name":"","type":"tuple[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"name","type":"string"},{"name":"project_ID","type":"uint256"},{"name":"amount","type":"uint256"}],"name":"donate","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"get_fundraiser_pro_array","outputs":[{"components":[{"name":"creator","type":"address"},{"name":"creator_name","type":"string"},{"name":"project_name","type":"string"},{"name":"descrption","type":"string"},{"name":"current_Amount","type":"uint256"},{"name":"goal_Amount","type":"uint256"},{"name":"create_date","type":"uint256"},{"name":"expired_date","type":"uint256"},{"name":"state","type":"uint8"}],"name":"","type":"tuple[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"get_withdraw_array","outputs":[{"components":[{"name":"project_ID","type":"uint256"},{"name":"project_name","type":"string"},{"name":"executor","type":"address"},{"name":"to_organization","type":"string"},{"name":"descrption","type":"string"},{"name":"withdraw_amount","type":"uint256"},{"name":"withdraw_date","type":"uint256"}],"name":"","type":"tuple[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"index","type":"uint256"}],"name":"get_project_data","outputs":[{"name":"","type":"address"},{"name":"","type":"string"},{"name":"","type":"string"},{"name":"","type":"string"},{"name":"","type":"uint256"},{"name":"","type":"uint256"},{"name":"","type":"uint256"},{"name":"","type":"uint256"},{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"fundraisersIndexSize","outputs":[{"name":"","type":"int8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"p_address","type":"address"}],"name":"delegate_payee","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"withdraw_data","outputs":[{"name":"project_ID","type":"uint256"},{"name":"project_name","type":"string"},{"name":"executor","type":"address"},{"name":"to_organization","type":"string"},{"name":"descrption","type":"string"},{"name":"withdraw_amount","type":"uint256"},{"name":"withdraw_date","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"project_ID","type":"uint256"},{"name":"project_name","type":"string"},{"name":"to","type":"string"},{"name":"descrption","type":"string"},{"name":"amount","type":"uint256"}],"name":"withdraw","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"get_personal_don_array","outputs":[{"components":[{"name":"don_address","type":"address"},{"name":"name","type":"string"},{"name":"project_ID","type":"uint256"},{"name":"amount","type":"uint256"},{"name":"don_date","type":"uint256"}],"name":"","type":"tuple[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"index","type":"uint256"}],"name":"get_personal_donation","outputs":[{"name":"","type":"address"},{"name":"","type":"string"},{"name":"","type":"uint256"},{"name":"","type":"uint256"},{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}]);
 Contract = myContract.at(ContractAddress); 
 
 
-//plant
-Template.demo1.created = function() {
-  this.showPlantData = false;
-};
+//project
+// Template.demo1.created = function() {
+//   this.showPlantData = false;
+// };
+// Template.demo1.onCreated(function helloOnCreated() {
+//   this.index = new ReactiveVar(0);
+//   this.name = new ReactiveVar(0);
+//   this.plant_date = new ReactiveVar(0);
+//   this.plant_temperature = new ReactiveVar(0);
+//   this.plant_water_volume = new ReactiveVar(0);
+//   this.sun_hours = new ReactiveVar(0);
+//   this.harvest_date = new ReactiveVar(0);
+// });
+
 Template.demo1.onCreated(function helloOnCreated() {
-  this.index = new ReactiveVar(0);
-  this.name = new ReactiveVar(0);
-  this.plant_date = new ReactiveVar(0);
-  this.plant_temperature = new ReactiveVar(0);
-  this.plant_water_volume = new ReactiveVar(0);
-  this.sun_hours = new ReactiveVar(0);
-  this.harvest_date = new ReactiveVar(0);
+
 });
 Template.demo1.events({
-  'click #start'(event, instance) {
-    var x = document.getElementById("start_planting");
-    Contract.planted(x.elements[0].value,function(error,result){});
+  'click #create'(event, instance) {
+    var x = document.getElementById("create_project");
+    Contract.create_project(x.elements[0].value,x.elements[1].value,x.elements[2].value,x.elements[3].value,x.elements[4].value,function(error,result){});
   },
 
-  'click #upload_plant'(event, instance) {
-    var x = document.getElementById("upload_plant_data");
-    Contract.upload_plant_data(x.elements[0].value,x.elements[1].value,x.elements[2].value,x.elements[3].value, function(error,result){});
-  },
-
-  'click #harvest_plant'(event, instance) {
-    var x = document.getElementById("harvest");
-    Contract.harvest(x.elements[0].value,x.elements[1].value, function(error,result){});
-  },
-  'click #getplant'(event, template) {
-    var x = document.getElementById("get_plant_data");
-    //console.log(x.elements[0].value);
-    Contract.get_plant_data(x.elements[0].value, async function(error,result){
-      console.log(await result[0]);
-      template.name.set(result[0]);
-      template.plant_date.set(result[1]);
-      template.plant_temperature.set(result[2]);
-      template.plant_water_volume.set(result[3]);
-      template.sun_hours.set(result[4]);
-      template.harvest_date.set(result[5]);
-
-      //console.log(template.name);
-    });
-    //console.log(template.name);
-    template.showPlantData = true;
+  'click #edit'(event, instance) {
+    var x = document.getElementById("edit_project");
+    Contract.edit_project(x.elements[0].value,x.elements[1].value,x.elements[2].value,x.elements[3].value,x.elements[4].value,x.elements[5].value, function(error,result){});
   },
 });	
-Template.demo1.helpers({
-  name: function(){
-    //console.log(Template.instance().name);
-    if(Template.instance().showPlantData)
-      return Template.instance().name.get('name');
-  },
-  plant_date() {
-    if(Template.instance().showPlantData)
-      return Template.instance().plant_date.get();
-  },
-  plant_temperature() {
-    if(Template.instance().showPlantData)
-      return Template.instance().plant_temperature.get();
-  },
-  plant_water_volume() {
-    if(Template.instance().showPlantData)
-      return Template.instance().plant_water_volume.get();
-  },
-  sun_hours() {
-    if(Template.instance().showPlantData)
-      return Template.instance().sun_hours.get();
-  },
-  harvest_date() {
-    if(Template.instance().showPlantData)
-      return Template.instance().harvest_date.get();
-  },
-  showPlantData: function(){
-    return Template.instance().name.get('name');
-  },
-});
 
-//Warehouse
-Template.demo2.created = function() {
-  this.showWarehouseData = false;
-};
-Template.demo2.onCreated(function helloOnCreated() {
-  this.name = new ReactiveVar(0);
-  this.house_temperature = new ReactiveVar(0);
-  this.stock = new ReactiveVar(0);
-});
-
+// Donation
 Template.demo2.events({
-  'click #upload_warehouse'(event, instance) {
-    var x = document.getElementById("warehouse");
-    Contract.upload_warehouse_data(x.elements[0].value,x.elements[1].value, function(error,result){});
-  },
-  'click #getwarehouse'(event, template) {
-    var x = document.getElementById("get_warehouse_data");
-    //console.log(x.elements[0].value);
-    Contract.get_Warehouse_data(x.elements[0].value, async function(error,result){
-      console.log(await result[0]);
-      template.name.set(result[0]);
-      template.house_temperature.set(result[1]);
-      template.stock.set(result[2]);
-    });
-    //console.log(template.name);
-    template.showWarehouseData = true;
+  'click #donate'(event, instance) {
+    var x = document.getElementById("donate_project");
+    Contract.donate(x.elements[0].value,x.elements[1].value,x.elements[2].value, function(error,result){});
   },
 });	
 
-Template.demo2.helpers({
-  name() {
-    if(Template.instance().showWarehouseData)
-      return Template.instance().name.get();
-  },
-  house_temperature() {
-    if(Template.instance().showWarehouseData)
-      return Template.instance().house_temperature.get();
-  },
-  stock() {
-    if(Template.instance().showWarehouseData)
-      return Template.instance().stock.get();
-  },
-  showWarehouseData: function(){
-    return Template.instance().name.get('name');
-  },
-});
-
-//Cold Chain Logistic
-Template.demo3.created = function() {
-  this.showTranData = false;
-};
-Template.demo3.onCreated(function helloOnCreated() {
-  this.name = new ReactiveVar(0);
-  this.shipment_date = new ReactiveVar(0);
-  this.tran_temperature = new ReactiveVar(0);
-});
+// Withdraw
 Template.demo3.events({
-  'click #upload_tran'(event, instance) {
-    var x = document.getElementById("transportation");
-    Contract.upload_tran_data(x.elements[0].value,x.elements[1].value, function(error,result){});
-  },
-  'click #Shipment'(event, instance) {
-    var x = document.getElementById("shipment_index");
-    Contract.shipment(x.elements[0].value, function(error,result){});
-  },
-  'click #gettrandata'(event, template) {
-    var x = document.getElementById("get_tran_data");
-    //console.log(x.elements[0].value);
-    Contract.get_Tran_data(x.elements[0].value, async function(error,result){
-      console.log(await result[0]);
-      template.name.set(result[0]);
-      template.shipment_date.set(result[1]);
-      template.tran_temperature.set(result[2]);
-    });
-    //console.log(template.name);
-    template.showTranData = true;
+  'click #withdraw'(event, instance) {
+    var x = document.getElementById("withdraw_money");
+    Contract.withdraw(x.elements[0].value,x.elements[1].value,x.elements[2].value,x.elements[3].value,x.elements[4].value,  function(error,result){});
   },
 });	
-Template.demo3.helpers({
-  name() {
-    if(Template.instance().showTranData)
-      return Template.instance().name.get();
-  },
-  shipment_date() {
-    if(Template.instance().showTranData)
-      return Template.instance().shipment_date.get();
-  },
-  tran_temperature() {
-    if(Template.instance().showTranData)
-      return Template.instance().tran_temperature.get();
-  },
-  showTranData: function(){
-    return Template.instance().name.get('name');
-  },
-});
 
-//Order
+// Data Tracking
 Template.demo4.created = function() {
-  this.showOrderData = false;
+  this.showProjectData = false;
+  this.showDonationData = false;
+  this.showWithdrawData = false;
 };
 Template.demo4.onCreated(function helloOnCreated() {
-  this.name = new ReactiveVar(0);
-  this.is_ordered = new ReactiveVar(0);
-  this.order_date = new ReactiveVar(0);
-  this.shipment_date = new ReactiveVar(0);
-  this.arrival_date = new ReactiveVar(0);
+  this.p_index = new ReactiveVar(0);
+  this.p_creator = new ReactiveVar(0);
+  this.p_creator_name = new ReactiveVar(0);
+  this.p_project_name = new ReactiveVar(0);
+  this.p_description = new ReactiveVar(0);
+  this.p_current_Amount = new ReactiveVar(0);
+  this.p_goal_Amount = new ReactiveVar(0);
+  this.p_create_date = new ReactiveVar(0);
+  this.p_expired_date = new ReactiveVar(0);
+  this.p_state = new ReactiveVar(0);
+  this.d_index = new ReactiveVar(0);
+  this.don_address = new ReactiveVar(0);
+  this.d_name = new ReactiveVar(0);
+  this.d_project_ID = new ReactiveVar(0);
+  this.d_amount = new ReactiveVar(0);
+  this.don_date = new ReactiveVar(0);
+  this.w_index = new ReactiveVar(0);
+  this.w_project_ID = new ReactiveVar(0);
+  this.w_project_name = new ReactiveVar(0);
+  this.w_executor = new ReactiveVar(0);
+  this.w_to_organization = new ReactiveVar(0);
+  this.w_description = new ReactiveVar(0);
+  this.withdraw_amount = new ReactiveVar(0);
+  this.withdraw_date = new ReactiveVar(0);
 });
 Template.demo4.events({
-  'click #order'(event, instance) {
-    var x = document.getElementById("order_index");
-    Contract.order(x.elements[0].value, function(error,result){});
-  },
-  'click #arrival'(event, instance) {
-    var x = document.getElementById("arrival_index");
-    Contract.arrival(x.elements[0].value, function(error,result){});
-  },
-  'click #getorderdata'(event, template) {
-    var x = document.getElementById("get_order_data");
+  'click #getprojectdata'(event, template) {
+    var x = document.getElementById("get_project_data");
     //console.log(x.elements[0].value);
-    Contract.get_Order_data(x.elements[0].value, async function(error,result){
+    Contract.get_project_data(x.elements[0].value, async function(error,result){
       console.log(await result[0]);
-      template.name.set(result[0]);
-      template.is_ordered.set(result[1]);
-      template.order_date.set(result[2]);
-      template.shipment_date.set(result[3]);
-      template.arrival_date.set(result[4]);
+      template.p_index.set(x.elements[0].value);
+      template.p_creator.set(result[0]);
+      template.p_creator_name.set(result[1]);
+      template.p_project_name.set(result[2]);
+      template.p_description.set(result[3]);
+      template.p_current_Amount.set(result[4]);
+      template.p_goal_Amount.set(result[5]);
+      template.p_create_date.set(result[6]);
+      template.p_expired_date.set(result[7]);
+      template.p_state.set(result[8]);
     });
     //console.log(template.name);
-    template.showOrderData = true;
+    template.showProjectData = true;
+  },
+  
+  'click #getdonationdata'(event, template) {
+    var x = document.getElementById("get_donation_data");
+    //console.log(x.elements[0].value);
+    Contract.get_donate_data(x.elements[0].value, async function(error,result){
+      console.log(await result[0]);
+      template.d_index.set(x.elements[0].value);
+      template.don_address.set(result[0]);
+      template.d_name.set(result[1]);
+      template.d_project_ID.set(result[2]);
+      template.d_amount.set(result[3]);
+      template.don_date.set(result[4]);
+    });
+    //console.log(template.name);
+    template.showDonationData = true;
+  },
+  'click #getwithdrawdata'(event, template) {
+    var x = document.getElementById("get_withdraw_data");
+    //console.log(x.elements[0].value);
+    Contract.get_withdraw_data(x.elements[0].value, async function(error,result){
+      console.log(await result[0]);
+      template.w_index.set(x.elements[0].value);
+      template.w_project_ID.set(result[0]);
+      template.w_project_name.set(result[1]);
+      template.w_executor.set(result[2]);
+      template.w_to_organization.set(result[3]);
+      template.w_description.set(result[4]);
+      template.withdraw_amount.set(result[5]);
+      template.withdraw_date.set(result[6]);
+    });
+    //console.log(template.name);
+    template.showWithdrawData = true;
   },
 });	
 Template.demo4.helpers({
-  name() {
-    if(Template.instance().showOrderData)
-      return Template.instance().name.get();
+  p_index() {
+    if(Template.instance().showProjectData)
+      return Template.instance().p_index.get('p_index');
   },
-  is_ordered() {
-    if(Template.instance().showOrderData)
-      return Template.instance().is_ordered.get();
+  p_creator() {
+    if(Template.instance().showProjectData)
+      return Template.instance().p_creator.get();
   },
-  order_date() {
-    if(Template.instance().showOrderData)
-      return Template.instance().order_date.get();
+  p_creator_name() {
+    if(Template.instance().showProjectData)
+      return Template.instance().p_creator_name.get();
   },
-  shipment_date() {
-    if(Template.instance().showOrderData)
-      return Template.instance().shipment_date.get();
+  p_project_name() {
+    if(Template.instance().showProjectData)
+      return Template.instance().p_project_name.get();
   },
-  arrival_date() {
-    if(Template.instance().showOrderData)
-      return Template.instance().arrival_date.get();
+  p_description() {
+    if(Template.instance().showProjectData)
+      return Template.instance().p_description.get();
   },
-  showOrderData: function(){
-    return Template.instance().name.get('name');
+  p_current_Amount: function(){
+    if(Template.instance().showProjectData)
+      return Template.instance().p_current_Amount.get();
+  },
+  p_goal_Amount() {
+    if(Template.instance().showProjectData)
+      return Template.instance().p_goal_Amount.get();
+  },
+  p_create_date: function(){
+    if(Template.instance().showProjectData)
+      return Template.instance().p_create_date.get();
+  },
+  p_expired_date() {
+    if(Template.instance().showProjectData)
+      return Template.instance().p_expired_date.get();
+  },
+  p_state: function(){
+    if(Template.instance().showProjectData)
+      return Template.instance().p_state.get();
+  },
+  showProjectData: function(){
+    return Template.instance().p_index.get('p_index');
+  },
+  // donation
+  d_index() {
+    if(Template.instance().showDonationData)
+      return Template.instance().d_index.get('d_index');
+  },
+  don_address: function(){
+    if(Template.instance().showDonationData)
+      return Template.instance().don_address.get();
+  },
+  d_name() {
+    if(Template.instance().showDonationData)
+      return Template.instance().d_name.get();
+  },
+  d_project_ID: function(){
+    if(Template.instance().showDonationData)
+      return Template.instance().d_project_ID.get();
+  },
+  d_amount() {
+    if(Template.instance().showDonationData)
+      return Template.instance().d_amount.get();
+  },
+  don_date: function(){
+    if(Template.instance().showDonationData)
+      return Template.instance().don_date.get();
+  },
+  showDonationData: function(){
+    return Template.instance().d_index.get('d_index');
+  },
+  // withdraw
+  w_index() {
+    if(Template.instance().showWithdrawData)
+      return Template.instance().w_index.get('w_index');
+  },
+  w_project_ID: function(){
+    if(Template.instance().showWithdrawData)
+      return Template.instance().w_project_ID.get();
+  },
+  w_project_name() {
+    if(Template.instance().showWithdrawData)
+      return Template.instance().w_project_name.get();
+  },
+  w_executor: function(){
+    if(Template.instance().showWithdrawData)
+      return Template.instance().w_executor.get();
+  },
+  w_to_organization() {
+    if(Template.instance().showWithdrawData)
+      return Template.instance().w_to_organization.get();
+  },
+  w_description: function(){
+    if(Template.instance().showWithdrawData)
+      return Template.instance().w_description.get();
+  },
+  withdraw_amount: function(){
+    if(Template.instance().showWithdrawData)
+      return Template.instance().withdraw_amount.get();
+  },
+  withdraw_date: function(){
+    if(Template.instance().showWithdrawData)
+      return Template.instance().withdraw_date.get();
+  },
+  showWithdrawData: function(){
+    return Template.instance().w_index.get('w_index');
   },
 });	
 
 Template.demo5.events({
-  'click #delegate'(event, instance) {
-    var x = document.getElementById("delegate_address");
-    Contract.delegate(x.elements[0].value, function(error,result){});
+  'click #delegate_payee'(event, instance) {
+    var x = document.getElementById("delegate_payee_address");
+    Contract.delegate_payee(x.elements[0].value, function(error,result){});
+  },
+  'click #delegate_fundraiser'(event, instance) {
+    var x = document.getElementById("delegate_fundraiser_address");
+    Contract.delegate_fundraiser(x.elements[0].value, function(error,result){});
   },
 });	
