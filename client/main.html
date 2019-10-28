@@ -21,6 +21,11 @@
   <script type="text/javascript" src="https://cdn.rawgit.com/ethereum/web3.js/master/dist/web3.min.js"></script>
   <script type="text/javascript" src="lib.js"></script>
   <script type="text/javascript" src="main.js"></script>
+  <!-- jimbo -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/jquery-slim.min.js"><\/script>')</script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- jimbo -->
   <title>dapp</title>
 </head>
 
@@ -119,6 +124,63 @@
       <h4 class="text-center mt-5 mb-3">Personal page</h4>
       <p class="text-center mb-5 w-75 mx-auto">The users can check the personal donations data here!</p>
       <!-- {{>demo6}} -->
+      <div class="div_center">
+        <div class="table-responsive">
+        <table class="table table-user-information">
+          <!-- <thead> -->
+           <tr>
+             <th></th>
+             <th scope="col"><h3 class="panel-title center" id = "username">用戶名</h3></th>
+           </tr>
+          <!-- </thread> -->
+          <tbody>
+            <tr>
+              <td>User career</td>
+              <td id = "career"></td>
+            </tr>
+            <tr>
+              <td>Create date</td>
+              <td id="create_date"></td>
+            </tr>
+            <tr>
+              <td>Date of Birth</td>
+              <td id="birth"></td>
+            </tr>
+            <tr>
+              <td>Income</td>
+              <td id="income"></td>
+            </tr>
+            <tr>
+              <td>Education</td>
+              <td id = "education"></td>
+            </tr>
+            <tr>
+              <td>Gender</td>
+              <td id = "gender"></td>
+            </tr>
+            <tr>
+              <td>Identity ID</td>
+              <td id ="ID"></td>
+            </tr>
+            <tr>
+              <td>Marriage</td>
+              <td id ="marriage"></td>
+            </tr>
+            <tr>
+              <td>Residence</td>
+              <td id ="residence"></td>
+            </tr>
+            <tr>
+              <td>Service units</td>
+              <td id ="service"></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="wrapper" style="text-align:center" id="dynamic-button">
+        <!-- <button class="btn btn-primary"style="float:center;" id="edit">Edit Profile</button> -->
+      </div>
+      </div>
+    </div>
     </div>
 
     <!-- About -->
@@ -132,7 +194,7 @@
 
 <!-- project -->
 <template name="demo1">
-  <div style="padding: 10px 200px 10px;">
+  <div class = "div_center">
     <h3>Create Project</h3>
     <form id="create_project">
       <div class="input-group">
@@ -166,7 +228,9 @@
       </div>
     </form>
   </div>
-  <div style="padding: 10px 200px 10px;">
+  <br>
+  <!-- <div style="padding: 10px 200px 10px;"> -->
+  <div class = "div_center">
     <h3>Edit Project</h3>
     <form id="edit_project">
       <!-- <div class="form-row"> -->
@@ -212,7 +276,8 @@
 
 <!-- Donate -->
 <template name="demo2">
-  <div style="padding: 10px 200px 10px;">
+  <!-- <div style="padding: 10px 200px 10px;"> -->
+  <div class = "div_center">
     <h3>Donate Project</h3>
     <form id="donate_project">
       <div class="input-group">
@@ -239,7 +304,8 @@
 
 <!-- Withdraw -->
 <template name="demo3">
-  <div style="padding: 10px 200px 10px;">
+  <!-- <div style="padding: 10px 200px 10px;"> -->
+  <div class = "div_center">
     <h3>Withdraw Donation Money</h3>
     <form id="withdraw_money">
       <div class="input-group">
@@ -277,7 +343,8 @@
 
 <!-- Data Tracking -->
 <template name="demo4">
-  <div style="padding: 10px 100px 10px;">
+  <div class = "div_center">
+  <!-- <div style="padding: 10px 100px 10px;"> -->
     <!-- get project data  -->
     <form id="get_project_data">
       <div class="col-md-11">
@@ -343,7 +410,8 @@
   
 <!-- Delegate -->
 <template name="demo5">
-  <div style="padding: 10px 300px 10px;">
+  <div class = "div_center">
+  <!-- <div style="padding: 10px 300px 10px;"> -->
     <form id="delegate_payee_address">
       <div class="form-row">
         <div class="form-group col-md-8">

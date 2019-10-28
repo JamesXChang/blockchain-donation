@@ -1,5 +1,11 @@
 /*csslint important: false*/
 
+
+.div_center{
+    padding: 0rem 8rem;
+}
+
+
 .nounderline:hover {
     text-decoration: none;
 }
@@ -80,3 +86,8 @@ body {
 }
 
 /*csslint important: true*/
+@media screen and (max-width :600px){
+    .div_center{
+        padding: 0rem 1rem;
+    }
+}
